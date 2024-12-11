@@ -1,0 +1,71 @@
+<h2>Update Player</h2>
+<button routerLink="/" class="btn btn-warning">Return to Home</button>
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<form [formGroup]="updateForm" (ngSubmit)="updatePlayer()" class="container col-md-5">
+ 
+  <div class="form-group">
+    Player ID:<input type="number" formControlName="playerId" class="form-control">
+    <div style="color: red;"  *ngIf="f['playerId'].touched && f['playerId'].errors">
+      <small *ngIf="f['playerId'].errors['required']">PlayerId is required</small>
+  </div> 
+  </div>
+
+  <div class="form-group">
+    Player Name:<input type="text" formControlName="playerName" class="form-control">
+    <div style="color: red;"  *ngIf="f['playerName'].touched && f['playerName'].errors">
+      <small *ngIf="f['playerName'].errors['required']">PlayerName is required</small>
+  </div> 
+  </div>
+
+  <div class="form-group">
+    Jersey Number: <input type="number" formControlName="jerseyNumber" class="form-control">
+    <div style="color: red;"  *ngIf="f['jerseyNumber'].touched && f['jerseyNumber'].errors">
+      <small *ngIf="f['jerseyNumber'].errors['required']">JerseyNumber is required</small>
+      <small *ngIf="f['jerseyNumber'].errors['min']">JerseyNumber Cannot be Less then 1</small>
+  </div>
+  </div>
+
+  <div class="form-group">
+    Role:<input type="text" formControlName="role" class="form-control">
+    <div style="color: red;"  *ngIf="f['role'].touched && f['role'].errors">
+      <small *ngIf="f['role'].errors['required']">Role is required</small>
+      <small *ngIf="f['role'].errors['pattern']">Role must be one of the following: WicketKeeper, Bowler, Batsman, Allrounder.</small>
+  </div> 
+  </div>
+
+  <div class="form-group">
+
+    Total Matches:<input type="text"  type="number" formControlName="totalMatches" class="form-control">
+    <div style="color: red;"  *ngIf="f['totalMatches'].touched && f['totalMatches'].errors">
+      <small *ngIf="f['totalMatches'].errors['required']">TotalMatches is required</small>
+      <small *ngIf="f['totalMatches'].errors['min']">TotalMatches should be zero or more</small>
+  </div> 
+  </div>
+
+  <div class="form-group">
+    Team Name:<input type="text" formControlName="teamName" class="form-control">
+    <div style="color: red;"  *ngIf="f['teamName'].touched && f['teamName'].errors">
+      <small *ngIf="f['teamName'].errors['required']">TeamName is required</small>
+  </div>
+  </div>
+
+  <div class="form-group">
+    Country Name: <input  type="text" formControlName="countryName" class="form-control">
+    <div style="color: red;"  *ngIf="f['countryName'].touched && f['countryName'].errors">
+      <small *ngIf="f['countryName'].errors['required']">CountryName is required</small>
+  </div>
+  </div>
+
+  <div class="form-group">
+    Description:<input type="text"  formControlName="description" class="form-control">
+    <div style="color: red;"  *ngIf="f['description'].touched && f['description'].errors">
+      <small *ngIf="f['description'].errors['required']">Description is required</small>
+  </div> 
+  </div>
+
+  <button type="submit" class="btn btn-primary" [disabled]="updateForm.invalid">Update</button>
+</form>

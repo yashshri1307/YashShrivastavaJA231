@@ -1,0 +1,67 @@
+<h2>Add Player</h2>
+
+<button routerLink="/" class="btn btn-warning">Return to Home</button>
+
+
+<div *ngIf="errorMessage" class="alert alert-danger">
+    {{ errorMessage }}
+  </div>
+
+<form class="container col-md-5" [formGroup]="addform" (ngSubmit)="add()">
+
+    <div class="form-group">
+    PlayerName:<input type="text"  formControlName="playerName" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['playerName'].touched && f['playerName'].errors">
+        <small *ngIf="f['playerName'].errors['required']">PlayerName is required</small>
+    </div>    
+</div>
+
+    <div class="form-group">
+    JerseyNumber:<input type="number"  formControlName="jerseyNumber" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['jerseyNumber'].touched && f['jerseyNumber'].errors">
+        <small *ngIf="f['jerseyNumber'].errors['required']">JerseyNumber is required</small>
+        <small *ngIf="f['jerseyNumber'].errors['min']">JerseyNumber Cannot be Less then 1</small>
+    </div>
+</div>
+
+    <div class="form-group">   
+    Role:<input type="text"  formControlName="role" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['role'].touched && f['role'].errors">
+        <small *ngIf="f['role'].errors['required']">Role is required</small>
+        <small *ngIf="f['role'].errors['pattern']">Role must be one of the following: WicketKeeper, Bowler, Batsman, Allrounder.</small>
+    </div>  
+</div>
+
+    <div class="form-group">
+    TotalMatches:<input type="number"  formControlName="totalMatches" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['totalMatches'].touched && f['totalMatches'].errors">
+        <small *ngIf="f['totalMatches'].errors['required']">TotalMatches is required</small>
+        <small *ngIf="f['totalMatches'].errors['min']">TotalMatches should be zero or more</small>
+    </div>     
+</div>
+
+    <div class="form-group">
+    TeamName:<input type="text"  formControlName="teamName" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['teamName'].touched && f['teamName'].errors">
+        <small *ngIf="f['teamName'].errors['required']">TeamName is required</small>
+    </div>     
+</div>
+
+    <div class="form-group">
+    CountryName:<input type="text"  formControlName="countryName" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['countryName'].touched && f['countryName'].errors">
+        <small *ngIf="f['countryName'].errors['required']">CountryName is required</small>
+    </div> 
+</div>
+
+    <div class="form-group">
+    Description:<input type="text"  formControlName="description" class="form-control"><br>
+    <div style="color: red;"  *ngIf="f['description'].touched && f['description'].errors">
+        <small *ngIf="f['description'].errors['required']">Description is required</small>
+    </div>   
+</div>
+
+    <button class="btn btn-primary" [disabled]="addform.invalid">Submit</button>
+
+
+</form>

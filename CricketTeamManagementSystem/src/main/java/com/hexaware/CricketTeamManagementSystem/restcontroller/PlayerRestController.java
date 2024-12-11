@@ -3,6 +3,7 @@ package com.hexaware.CricketTeamManagementSystem.restcontroller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,6 +17,7 @@ import com.hexaware.CricketTeamManagementSystem.dto.PlayerDTO;
 import com.hexaware.CricketTeamManagementSystem.entities.Player;
 import com.hexaware.CricketTeamManagementSystem.service.IPlayerService;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/api/players")
 public class PlayerRestController {
