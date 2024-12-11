@@ -1,0 +1,42 @@
+.field-label {
+    color: black;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.error-message small {
+    color: #ff0000; 
+    font-size: 0.9em;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+.error-message small {
+    color: #ff0000; 
+    font-size: 0.9em;
+    background-color: #ffffff; 
+    padding: 2px 5px;
+    border-radius: 3px;
+    text-shadow: 1px 1px 2px black; 
+}
+
+
+.error-message small {
+    color: #ff0000; 
+    font-size: 0.9em;
+    text-shadow: 1px 1px 2px black; 
+}
+

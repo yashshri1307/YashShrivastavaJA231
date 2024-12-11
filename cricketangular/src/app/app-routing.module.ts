@@ -6,12 +6,12 @@ import { AddplayerComponent } from './components/addplayer/addplayer.component';
 import { HomeComponent } from './components/home/home.component';
 
 const routes: Routes = [
-  {path:'displayAll',component:DisplayAllComponent},
-  {path:'update',component:UpdateComponent},
-  {path:'addplayer',component:AddplayerComponent},
-  {path:'home',component:HomeComponent},
-  {path:'',redirectTo:'/home',pathMatch: 'full'}
-
+  { path: '', component: HomeComponent, children: [
+    { path: 'addplayer', component: AddplayerComponent },
+    { path: 'displayAll', component: DisplayAllComponent },
+    { path: 'update', component: UpdateComponent },
+  ]},
+  { path: '**', redirectTo: '' }
 ];
 
 @NgModule({
